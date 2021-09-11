@@ -31,7 +31,7 @@
                             {#each entry.data as item}
                                 <li>
                                     <label for="favcolor">{item.styleProp}:</label>
-                                    <input type="color" id="favcolor" name="favcolor" value={item.value}>
+                                    <input type="color" id="favcolor" name="favcolor" bind:value={item.value}>
                                 </li>
                             {/each}
                         </ul>

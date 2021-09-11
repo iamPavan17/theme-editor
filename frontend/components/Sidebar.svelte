@@ -36,7 +36,7 @@
         content: "";
         display: block;
         width: 71px;
-        border-bottom: 1px solid;
+        border-bottom: 1px solid #ccc;
         margin: 0 auto;
         padding-top: 3px;
     }

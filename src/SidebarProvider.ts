@@ -1,5 +1,6 @@
 import * as vscode from "vscode";
 import { getNonce } from "./getNonce";
+import { ThemeEditorPanel } from "./ThemeEditorPanel";
 
 export class SidebarProvider implements vscode.WebviewViewProvider {
   _view?: vscode.WebviewView;
@@ -19,6 +20,10 @@ export class SidebarProvider implements vscode.WebviewViewProvider {
 
     webviewView.webview.onDidReceiveMessage(async (data) => {
       switch (data.type) {
+        case "loadThemeEditor": {
+          ThemeEditorPanel.createOrShow(this._extensionUri);
+          break;
+        }
         case "onInfo": {
           if (!data.value) {
             return;
@@ -50,7 +55,7 @@ export class SidebarProvider implements vscode.WebviewViewProvider {
       vscode.Uri.joinPath(this._extensionUri, "media", "vscode.css")
     );
 
-    /** CSS which are specific to webview */
+    /** And the uri we use to load this script in the webview */
     const scriptUri = webview.asWebviewUri(
       vscode.Uri.joinPath(this._extensionUri, "out", "compiled/Sidebar.js")
     );
@@ -74,8 +79,11 @@ export class SidebarProvider implements vscode.WebviewViewProvider {
 				<link href="${styleResetUri}" rel="stylesheet">
 				<link href="${styleVSCodeUri}" rel="stylesheet">
                 <link href="${styleMainUri}" rel="stylesheet">
+                <script nonce="${nonce}">
+                    const vscodeApi = acquireVsCodeApi(); // making VS Code APIs available to webviews.
+                </script>
 			</head>
-            <body>
+            <body style="padding: 0;">
 				<script nonce="${nonce}" src="${scriptUri}"></script>
 			</body>
 			</html>`;

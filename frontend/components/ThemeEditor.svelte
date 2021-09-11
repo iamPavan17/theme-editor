@@ -1,0 +1,1 @@
+<h1>Hello from svelte From editor new</h1>

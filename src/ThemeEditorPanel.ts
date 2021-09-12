@@ -83,7 +83,7 @@ export class ThemeEditorPanel {
   public dispose() {
     ThemeEditorPanel.currentPanel = undefined;
 
-    /** Closing side bar once the theme editor tab is closed */
+    // Closing side bar once the theme editor tab is closed
     vscode.commands.executeCommand("workbench.action.closeSidebar");
 
     this._panel.dispose(); // Clean up our resources
@@ -103,7 +103,7 @@ export class ThemeEditorPanel {
     webview.onDidReceiveMessage(async (data) => {
       switch (data.type) {
         case "apply": {
-          /** Updating the theme */
+          // Updating the theme
           await vscode.workspace
             .getConfiguration()
             .update(
@@ -112,10 +112,11 @@ export class ThemeEditorPanel {
               vscode.ConfigurationTarget.Global
             );
           vscode.window.showInformationMessage("Theme updated successfully!");
+          await ThemeSettingsManager.setSettings({});
           break;
         }
         case "save": {
-          /** Saving the theme */
+          // Saving the theme
           const settingsName = await vscode.window.showInputBox({
             prompt: "Settings name",
             title: "Save Settings",
@@ -160,7 +161,7 @@ export class ThemeEditorPanel {
   }
 
   private _getHtmlForWebview(webview: vscode.Webview) {
-    /** Default CSS */
+    // Default CSS
     const styleResetPath = vscode.Uri.joinPath(
       this._extensionUri,
       "media",
@@ -172,7 +173,7 @@ export class ThemeEditorPanel {
       "vscode.css"
     );
 
-    /** And the uri we use to load this script in the webview */
+    // And the uri we use to load this script in the webview
     const scriptUri = webview.asWebviewUri(
       vscode.Uri.joinPath(this._extensionUri, "out", "compiled/ThemeEditor.js")
     );

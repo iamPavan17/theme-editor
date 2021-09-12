@@ -1,24 +1,50 @@
 <script>
-    import { onMount } from "svelte";
+    import { onMount, onDestroy } from "svelte";
+    export let formatSavedStylesForList;
+
+    let savedSettings = [];
+
+    const onWindowMessage = (event) => {
+        const message = event.data;
+        switch (message.type) {
+            case 'saved-settings': 
+                if(message.value) {
+                    savedSettings = formatSavedStylesForList(message.value)
+                }
+        }
+    }
 
     onMount(() => {
-        /** 
-         * vscodeApi: is coming from SidebarProvider. 
-         * On mount rendering theme editor view.
-        */
+        // rendering theme editor view.
         vscodeApi.postMessage({ type: 'loadThemeEditor', value: null });
+
+        // getting saved theme settings.
+        vscodeApi.postMessage({ type: 'getSavedThemeSettings', value: undefined });
+        
+        window.addEventListener("message", onWindowMessage);
     });
 
-    let savedSettings = [{
-        title: 'Item A'
-    }];
+    onDestroy(() => { 
+        window.removeEventListener("message", onWindowMessage);
+    });
+
+    const handleRefresh = () => {
+        vscodeApi.postMessage({ type: 'getSavedThemeSettings', value: undefined });
+    }
+
 </script>
 
 <div>
-    <h2>saved settings</h2>
-
+    <h2>
+        saved settings 
+        <div class="reload-icon" on:click={handleRefresh}>
+            <svg width="20" height="20" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.681 3H2V2h3.5l.5.5V6H5V4a5 5 0 1 0 4.53-.761l.302-.954A6 6 0 1 1 4.681 3z"/></svg>
+        </div>
+    </h2>
     {#each savedSettings as item}
         <p>{item.title}</p>
+    {:else}
+        <p>No Settings found</p>
     {/each}
 </div>
 
@@ -45,5 +71,16 @@
         padding: 10px 0px;
         border: 1px solid;
         cursor: pointer;
+    }
+
+    .reload-icon {
+        display: inline-block;
+        margin-left: 17px;
+        cursor: pointer;
+    }
+
+    .reload-icon svg {
+        padding-top: 1px;
+        vertical-align: bottom;
     }
 </style>

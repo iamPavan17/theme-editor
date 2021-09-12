@@ -1,6 +1,7 @@
 import * as vscode from "vscode";
 import { getNonce } from "./getNonce";
 import { ThemeEditorPanel } from "./ThemeEditorPanel";
+import { ThemeSettingsManager } from "./ThemeSettingsManager";
 
 export class SidebarProvider implements vscode.WebviewViewProvider {
   _view?: vscode.WebviewView;
@@ -20,6 +21,14 @@ export class SidebarProvider implements vscode.WebviewViewProvider {
 
     webviewView.webview.onDidReceiveMessage(async (data) => {
       switch (data.type) {
+        case "getSavedThemeSettings": {
+          const savedSettings = await ThemeSettingsManager.getSettings();
+          webviewView.webview.postMessage({
+            type: "saved-settings",
+            value: savedSettings,
+          });
+          break;
+        }
         case "loadThemeEditor": {
           ThemeEditorPanel.createOrShow(this._extensionUri);
           break;

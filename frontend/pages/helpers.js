@@ -29,3 +29,12 @@ export const formatStylings = (stylesObj) => {
 
   return formattedData;
 };
+
+export const formatSavedStylesForList = (savedStyles) => {
+  let listItems = [];
+  for (let key in savedStyles) {
+    listItems.push({ title: key });
+  }
+
+  return listItems;
+};

@@ -1,3 +1,7 @@
+<!-- 
+    * vscodeApi: is coming from ThemeEditorPanel. 
+-->
+
 <!-- Script section -->
 <script>
     import { slide } from "svelte/transition";
@@ -58,9 +62,6 @@
 
     // Apply stylings
     const handleApplyStyles = () => { 
-        /** 
-         * vscodeApi: is coming from ThemeEditorPanel. 
-        */
         vscodeApi.postMessage({ type: 'apply', value: formatStylings(data) });
     }
 

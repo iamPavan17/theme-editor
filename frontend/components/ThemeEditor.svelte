@@ -64,6 +64,11 @@
         vscodeApi.postMessage({ type: 'apply', value: formatStylings(data) });
     }
 
+    // Saving stylings
+    const handleSaveStyles = () => { 
+        vscodeApi.postMessage({ type: 'save', value: formatStylings(data) });
+    }
+
 </script>
 
 <!-- HTML section -->
@@ -94,7 +99,7 @@
         <pre class="note">Note: Only changed colors will be reflected.</pre>
 
         <div class="btn-action-container">
-            <button disabled={!hasTouched} class:disabled-btn={!hasTouched}>Save</button>
+            <button disabled={!hasTouched} class:disabled-btn={!hasTouched} on:click={handleSaveStyles}>Save</button>
             <button disabled={!hasTouched} class:disabled-btn={!hasTouched} on:click={handleApplyStyles}>Apply</button>
         </div>
 

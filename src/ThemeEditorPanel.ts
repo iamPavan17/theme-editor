@@ -1,5 +1,6 @@
 import * as vscode from "vscode";
 import { getNonce } from "./getNonce";
+import { ThemeSettingsManager } from "./ThemeSettingsManager";
 
 export class ThemeEditorPanel {
   /**
@@ -111,6 +112,33 @@ export class ThemeEditorPanel {
               vscode.ConfigurationTarget.Global
             );
           vscode.window.showInformationMessage("Theme updated successfully!");
+          break;
+        }
+        case "save": {
+          /** Saving the theme */
+          const settingsName = await vscode.window.showInputBox({
+            prompt: "Settings name",
+            title: "Save Settings",
+            validateInput: (value: string): string | undefined => {
+              if (value.length < 3) {
+                return "Minimum of 3 characters required";
+              } else {
+                return undefined;
+              }
+            },
+          });
+
+          if (settingsName) {
+            const newSettings = {
+              [settingsName]: data.value,
+            };
+
+            let savedSettings = await ThemeSettingsManager.getSettings();
+            if (savedSettings) {
+              Object.assign(newSettings, savedSettings);
+            }
+            await ThemeSettingsManager.setSettings(newSettings);
+          }
           break;
         }
         case "onInfo": {

@@ -14,3 +14,18 @@ export const convertToHumanForm = (value) => {
       return "Editor";
   }
 };
+
+export const formatStylings = (stylesObj) => {
+  let formattedData = {};
+
+  for (let i = 0; i < stylesObj.length; i++) {
+    const item = stylesObj[i].data;
+    for (let j = 0; j < item.length; j++) {
+      if (item[j].value.length) {
+        formattedData[item[j].styleProp] = item[j].value;
+      }
+    }
+  }
+
+  return formattedData;
+};

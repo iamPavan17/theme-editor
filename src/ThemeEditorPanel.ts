@@ -101,6 +101,18 @@ export class ThemeEditorPanel {
     this._panel.webview.html = this._getHtmlForWebview(webview);
     webview.onDidReceiveMessage(async (data) => {
       switch (data.type) {
+        case "apply": {
+          /** Updating the theme */
+          await vscode.workspace
+            .getConfiguration()
+            .update(
+              "workbench.colorCustomizations",
+              data.value,
+              vscode.ConfigurationTarget.Global
+            );
+          vscode.window.showInformationMessage("Theme updated successfully!");
+          break;
+        }
         case "onInfo": {
           if (!data.value) {
             return;
@@ -160,7 +172,9 @@ export class ThemeEditorPanel {
 				<link href="${stylesResetUri}" rel="stylesheet">
 				<link href="${stylesMainUri}" rel="stylesheet">
         <link href="${styleMainUri}" rel="stylesheet">
-        <script nonce="${nonce}"></script>
+        <script nonce="${nonce}">
+            const vscodeApi = acquireVsCodeApi(); // making VS Code APIs available to webviews.
+        </script>
 			</head>
       <body>
 			</body>

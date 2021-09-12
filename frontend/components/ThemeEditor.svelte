@@ -2,6 +2,7 @@
 <script>
     import { slide } from "svelte/transition";
     export let convertToHumanForm;
+    export let formatStylings;
 
     let hasTouched = false;
 
@@ -54,6 +55,15 @@
             { id: 67, styleProp: 'editor.selectionBackground', value: '' },
 		] },
 	];
+
+    // Apply stylings
+    const handleApplyStyles = () => { 
+        /** 
+         * vscodeApi: is coming from ThemeEditorPanel. 
+        */
+        vscodeApi.postMessage({ type: 'apply', value: formatStylings(data) });
+    }
+
 </script>
 
 <!-- HTML section -->
@@ -85,7 +95,7 @@
 
         <div class="btn-action-container">
             <button disabled={!hasTouched} class:disabled-btn={!hasTouched}>Save</button>
-            <button disabled={!hasTouched} class:disabled-btn={!hasTouched}>Apply</button>
+            <button disabled={!hasTouched} class:disabled-btn={!hasTouched} on:click={handleApplyStyles}>Apply</button>
         </div>
 
     </div>

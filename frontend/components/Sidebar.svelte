@@ -7,7 +7,6 @@
          * On mount rendering theme editor view.
         */
         vscodeApi.postMessage({ type: 'loadThemeEditor', value: null });
-        
     });
 
     let savedSettings = [{

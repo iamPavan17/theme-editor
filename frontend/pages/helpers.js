@@ -1,8 +1,16 @@
-export const convertHumanForm = (value) => {
+export const convertToHumanForm = (value) => {
   switch (value) {
     case "titleBar":
       return "Title Bar";
     case "activityBar":
       return "Activity Bar";
+    case "sideBar":
+      return "Side Bar";
+    case "statusBar":
+      return "Status Bar";
+    case "terminal":
+      return "Terminal";
+    case "editor":
+      return "Editor";
   }
 };

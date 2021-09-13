@@ -23,11 +23,30 @@ export class SidebarProvider implements vscode.WebviewViewProvider {
       switch (data.type) {
         case "getSavedThemeSettings": {
           const savedSettings = await ThemeSettingsManager.getSettings();
+          // To webview sidebar
           webviewView.webview.postMessage({
             type: "saved-settings",
             value: savedSettings,
           });
           break;
+        }
+        case "popToRemove": {
+          const answer = await vscode.window.showInformationMessage(
+            `Are you sure you want to remove this setting: ${data.value}?`,
+            "Yes",
+            "No"
+          );
+          if (answer === "Yes") {
+            let savedSettings: object | any =
+              await ThemeSettingsManager.getSettings();
+            delete savedSettings[data.value];
+            await ThemeSettingsManager.setSettings(savedSettings);
+            // To webview sidebar
+            webviewView.webview.postMessage({
+              type: "delete",
+              value: data.value,
+            });
+          }
         }
         case "loadThemeEditor": {
           ThemeEditorPanel.createOrShow(this._extensionUri);

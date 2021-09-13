@@ -8,10 +8,15 @@
     const onWindowMessage = (event) => {
         const message = event.data;
         switch (message.type) {
-            case 'saved-settings': 
+            case 'saved-settings': {
                 if(message.value) {
                     savedSettings = formatSavedStylesForList(message.value)
                 }
+                break;
+            }
+            case 'delete': {
+                savedSettings = savedSettings.filter(item => item.title !== message.value);
+            }  
         }
     }
 
@@ -34,7 +39,7 @@
     }
 
     const handleDelete = (title) => {
-        savedSettings = savedSettings.filter(item => item.title !== title);
+        vscodeApi.postMessage({ type: 'popToRemove', value: title });
     }
 
 </script>

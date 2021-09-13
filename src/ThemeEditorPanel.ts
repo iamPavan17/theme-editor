@@ -164,10 +164,14 @@ export class ThemeEditorPanel {
         }
         case "save": {
           // Saving the theme
+          const savedSettings: any = await ThemeSettingsManager.getSettings();
           const settingsName = await vscode.window.showInputBox({
             prompt: "Settings name",
             title: "Save Settings",
             validateInput: (value: string): string | undefined => {
+              if (savedSettings && Object.keys(savedSettings).includes(value)) {
+                return "The given settings name already exists";
+              }
               if (value.length < 3) {
                 return "Minimum of 3 characters required";
               } else {

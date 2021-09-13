@@ -12,9 +12,13 @@ export class ThemeEditorPanel {
 
   private readonly _panel: vscode.WebviewPanel;
   private readonly _extensionUri: vscode.Uri;
+  private _selectedTheme: string | undefined;
   private _disposables: vscode.Disposable[] = [];
 
-  public static createOrShow(extensionUri: vscode.Uri) {
+  public static createOrShow(
+    extensionUri: vscode.Uri,
+    selectedTheme: string | undefined
+  ) {
     const column = vscode.window.activeTextEditor
       ? vscode.window.activeTextEditor.viewColumn
       : undefined;
@@ -22,6 +26,7 @@ export class ThemeEditorPanel {
     // If we already have a panel, show it.
     if (ThemeEditorPanel.currentPanel) {
       ThemeEditorPanel.currentPanel._panel.reveal(column);
+      ThemeEditorPanel.currentPanel._selectedTheme = selectedTheme;
       ThemeEditorPanel.currentPanel._update();
       return;
     }
@@ -43,7 +48,11 @@ export class ThemeEditorPanel {
       }
     );
 
-    ThemeEditorPanel.currentPanel = new ThemeEditorPanel(panel, extensionUri);
+    ThemeEditorPanel.currentPanel = new ThemeEditorPanel(
+      panel,
+      extensionUri,
+      selectedTheme
+    );
   }
 
   public static kill() {
@@ -51,13 +60,26 @@ export class ThemeEditorPanel {
     ThemeEditorPanel.currentPanel = undefined;
   }
 
-  public static revive(panel: vscode.WebviewPanel, extensionUri: vscode.Uri) {
-    ThemeEditorPanel.currentPanel = new ThemeEditorPanel(panel, extensionUri);
+  public static revive(
+    panel: vscode.WebviewPanel,
+    extensionUri: vscode.Uri,
+    selectedTheme: string | undefined
+  ) {
+    ThemeEditorPanel.currentPanel = new ThemeEditorPanel(
+      panel,
+      extensionUri,
+      selectedTheme
+    );
   }
 
-  private constructor(panel: vscode.WebviewPanel, extensionUri: vscode.Uri) {
+  private constructor(
+    panel: vscode.WebviewPanel,
+    extensionUri: vscode.Uri,
+    selectedTheme: string | undefined
+  ) {
     this._panel = panel;
     this._extensionUri = extensionUri;
+    this._selectedTheme = selectedTheme;
 
     // Set the webview's initial html content
     this._update();
@@ -102,6 +124,32 @@ export class ThemeEditorPanel {
     this._panel.webview.html = this._getHtmlForWebview(webview);
     webview.onDidReceiveMessage(async (data) => {
       switch (data.type) {
+        case "saveExisting": {
+          let savedSettings: any = await ThemeSettingsManager.getSettings();
+          savedSettings[data.savedTheme] = data.value;
+          await ThemeSettingsManager.setSettings(savedSettings);
+          vscode.window.showInformationMessage("Theme saved successfully!");
+          break;
+        }
+        case "setTitle": {
+          // Setting the title of the panel when the usr selects any saved theme settings.
+          if (data.value) {
+            this._panel.title = data.value;
+          } else {
+            this._panel.title = "ThemeEditor";
+          }
+          break;
+        }
+        case "getSelectedTheme": {
+          if (data.value) {
+            let savedSettings: any = await ThemeSettingsManager.getSettings();
+            webview.postMessage({
+              type: "selectedTheme",
+              value: savedSettings[data.value],
+            });
+          }
+          break;
+        }
         case "apply": {
           // Updating the theme
           await vscode.workspace
@@ -198,13 +246,16 @@ export class ThemeEditorPanel {
 					Use a content security policy to only allow loading images from https or from our extension directory,
 					and only allow scripts that have a specific nonce.
         -->
-        <meta http-equiv="Content-Security-Policy" content="img-src https: data:; style-src 'unsafe-inline' ${webview.cspSource}; script-src 'nonce-${nonce}';">
+        <meta http-equiv="Content-Security-Policy" content="img-src https: data:; style-src 'unsafe-inline' ${
+          webview.cspSource
+        }; script-src 'nonce-${nonce}';">
 				<meta name="viewport" content="width=device-width, initial-scale=1.0">
 				<link href="${stylesResetUri}" rel="stylesheet">
 				<link href="${stylesMainUri}" rel="stylesheet">
         <link href="${styleMainUri}" rel="stylesheet">
         <script nonce="${nonce}">
             const vscodeApi = acquireVsCodeApi(); // making VS Code APIs available to webviews.
+            const selectedTheme = ${JSON.stringify(this._selectedTheme)}
         </script>
 			</head>
       <body>

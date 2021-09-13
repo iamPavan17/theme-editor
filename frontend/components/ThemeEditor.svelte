@@ -5,13 +5,42 @@
 <!-- Script section -->
 <script>
     import { slide } from "svelte/transition";
+    import { onMount, onDestroy } from "svelte";
     export let convertToHumanForm;
     export let formatStylings;
     export let defaultThemeSettings;
+    export let assignSelectThemeValues;
+    export let resetToDefaultSettings;
 
     let hasTouched = false;
+    let hasLoadedSavedTheme = false;
 
     let data = defaultThemeSettings;
+
+    const onWindowMessage = (event) => {
+        const message = event.data;
+        switch (message.type) {
+            case 'selectedTheme': {
+                data = assignSelectThemeValues(data, message.value);
+                hasLoadedSavedTheme = true;
+                break;
+            }
+        }
+    }
+
+    onMount(() => {
+        // Setting a title for the panel;
+        vscodeApi.postMessage({ type: 'setTitle', value: selectedTheme });
+
+        // Getting the themeSettings style obj
+        vscodeApi.postMessage({ type: 'getSelectedTheme', value: selectedTheme });
+
+        window.addEventListener("message", onWindowMessage);
+    });
+
+    onDestroy(() => { 
+        window.removeEventListener("message", onWindowMessage);
+    });
 
     // Apply stylings
     const handleApplyStyles = () => { 
@@ -20,14 +49,26 @@
 
     // Saving stylings
     const handleSaveStyles = () => { 
-        vscodeApi.postMessage({ type: 'save', value: formatStylings(data) });
+        if(hasLoadedSavedTheme) {
+            vscodeApi.postMessage({ type: 'saveExisting', value: formatStylings(data), savedTheme: selectedTheme });
+        } else {
+            vscodeApi.postMessage({ type: 'save', value: formatStylings(data) });
+        }
+    }
+
+    // Resetting stylings to default
+    const handleResetStyles = () => {
+        vscodeApi.postMessage({ type: 'setTitle', value: "ThemeEditor" });
+        hasTouched = false;
+        hasLoadedSavedTheme = false;
+        data = resetToDefaultSettings(data);
     }
 
 </script>
 
 <!-- HTML section -->
 <div>
-    <h1 class="test">customise theme</h1>
+    <h1>customise theme</h1>
     <div class="container">
         {#each data as entry}
             <div class="container">
@@ -53,6 +94,7 @@
         <pre class="note">Note: Only changed colors will be reflected.</pre>
 
         <div class="btn-action-container">
+            <button disabled={!hasTouched && !hasLoadedSavedTheme} class:disabled-btn={!hasTouched && !hasLoadedSavedTheme} on:click={handleResetStyles}>Reset</button>
             <button disabled={!hasTouched} class:disabled-btn={!hasTouched} on:click={handleSaveStyles}>Save</button>
             <button disabled={!hasTouched} class:disabled-btn={!hasTouched} on:click={handleApplyStyles}>Apply</button>
         </div>
@@ -83,6 +125,7 @@
 
     .container {
 		margin-left: 17px;
+        margin-top: 10px;
 	}
 
     .disabled-btn {

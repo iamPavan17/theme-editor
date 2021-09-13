@@ -21,6 +21,10 @@ export class SidebarProvider implements vscode.WebviewViewProvider {
 
     webviewView.webview.onDidReceiveMessage(async (data) => {
       switch (data.type) {
+        case "selected-theme": {
+          ThemeEditorPanel.createOrShow(this._extensionUri, data.value);
+          break;
+        }
         case "getSavedThemeSettings": {
           const savedSettings = await ThemeSettingsManager.getSettings();
           // To webview sidebar
@@ -47,9 +51,14 @@ export class SidebarProvider implements vscode.WebviewViewProvider {
               value: data.value,
             });
           }
+          break;
+        }
+        case "closeThemeEditor": {
+          // ThemeEditorPanel.kill();
+          break;
         }
         case "loadThemeEditor": {
-          ThemeEditorPanel.createOrShow(this._extensionUri);
+          ThemeEditorPanel.createOrShow(this._extensionUri, undefined);
           break;
         }
         case "onInfo": {

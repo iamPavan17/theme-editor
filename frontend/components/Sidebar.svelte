@@ -31,6 +31,9 @@
     });
 
     onDestroy(() => { 
+        // closing theme editor view.
+        vscodeApi.postMessage({ type: 'closeThemeEditor', value: null });
+
         window.removeEventListener("message", onWindowMessage);
     });
 
@@ -40,6 +43,10 @@
 
     const handleDelete = (title) => {
         vscodeApi.postMessage({ type: 'popToRemove', value: title });
+    }
+
+    const handleSelect = (title) => {
+        vscodeApi.postMessage({ type: 'selected-theme', value: title });
     }
 
 </script>
@@ -52,7 +59,7 @@
 
     <div class="savedSettingsContainer">
         {#each savedSettings as item}
-            <div out:fly={{x:100}} class="itemContainer">
+            <div out:fly={{x:100}} class="itemContainer" on:click={() => handleSelect(item.title)}>
                 {item.title}
                 <div class="icon" on:click={() => handleDelete(item.title)}>
                     <svg fill="none" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg">

@@ -18,7 +18,7 @@ export function activate(context: vscode.ExtensionContext) {
   context.subscriptions.push(
     vscode.commands.registerCommand("theme-editor.helloWorld", () => {
       vscode.window.showInformationMessage("Hello World!");
-      ThemeEditorPanel.createOrShow(context.extensionUri);
+      ThemeEditorPanel.createOrShow(context.extensionUri, undefined);
     })
   );
 }

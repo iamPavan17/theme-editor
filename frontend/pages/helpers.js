@@ -38,3 +38,33 @@ export const formatSavedStylesForList = (savedStyles) => {
 
   return listItems;
 };
+
+export const assignSelectThemeValues = (
+  defaultThemeSettings,
+  selectedThemeSettings
+) => {
+  for (let key in defaultThemeSettings) {
+    const currentSetting = defaultThemeSettings[key].data;
+    for (let i = 0; i < currentSetting.length; i++) {
+      if (
+        Object.keys(selectedThemeSettings).includes(currentSetting[i].styleProp)
+      ) {
+        currentSetting[i].value =
+          selectedThemeSettings[currentSetting[i].styleProp];
+      }
+    }
+  }
+
+  return defaultThemeSettings;
+};
+
+export const resetToDefaultSettings = (defaultThemeSettings) => {
+  for (let key in defaultThemeSettings) {
+    const currentSetting = defaultThemeSettings[key].data;
+    for (let i = 0; i < currentSetting.length; i++) {
+      currentSetting[i].value = "";
+    }
+  }
+
+  return defaultThemeSettings;
+};

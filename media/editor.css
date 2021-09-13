@@ -1,0 +1,78 @@
+.title { 
+    text-transform: uppercase;
+    padding: 8px 5px 26px 5px; 
+    font-size: 250%;
+}
+
+.title::after {
+    content: "";
+    border: 1px solid #ccc;
+    width: 10%;
+    display: block;
+    margin-top: 4px;
+    margin-left: 7px;
+}
+
+.note {
+    margin-left: 23px;
+}
+
+.container {
+    margin-left: 17px;
+    margin-top: 10px;
+}
+
+.disabled-btn {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.listContainer {
+    padding-top: 17px;
+    height: 100%;
+}
+
+.listContainer ul { 
+    list-style: none;
+}
+
+.listContainer li { 
+    display: inline-block;
+    margin-left: 26px;
+    margin-bottom: 30px;
+}
+
+.listContainer label { 
+    display: block;
+    margin-bottom: 10px;
+}
+
+.btn-action-container {
+    padding: 17px 30px;
+    text-align: right;
+}
+
+.btn-action-container button {
+    width: 80px;
+    margin-right: 17px;
+}
+
+.accordion {
+    border: none; 
+    background: none;
+    display: block; 
+    color: inherit; 
+    font-size: 17px; 
+    cursor: pointer; 
+    margin: 0; 
+    padding-bottom: 0.5em; 
+    padding-top: 0.5em;
+    text-align: left;
+}
+
+svg { 
+    vertical-align: text-bottom; 
+    transition: transform 0.2s ease-in;
+}
+
+[aria-expanded=true] svg { transform: rotate(0.25turn); }

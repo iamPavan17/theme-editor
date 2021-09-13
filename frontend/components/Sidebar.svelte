@@ -52,7 +52,7 @@
 </script>
 
 <div>
-    <h2>
+    <h2 class="sideBarTitle">
         saved settings 
         <svg on:click={handleRefresh} width="20" height="20" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.681 3H2V2h3.5l.5.5V6H5V4a5 5 0 1 0 4.53-.761l.302-.954A6 6 0 1 1 4.681 3z"/></svg>
     </h2>
@@ -68,78 +68,7 @@
                 </div>
             </div>
         {:else}
-            <pre>No Settings found</pre>
+            <pre class="noSettings">No Settings found</pre>
         {/each}
     </div>
 </div>
-
-<style>
-    h2 {
-        font-size: 17px;
-        font-weight: 300;
-        text-align: center;
-        text-transform: uppercase;
-        margin: 20px 0px;
-    }
-
-    h2::before {
-        content: "";
-        display: block;
-        width: 90%;
-        border-top: 1px solid #e6e3e3;
-        margin: 0 auto;
-        padding-top: 8px;
-    }
-
-    h2::after {
-        content: "";
-        display: block;
-        width: 90%;
-        border-bottom: 1px solid #e6e3e3;
-        margin: 0 auto;
-        padding-top: 7px;
-    }
-
-    h2 svg {
-        margin-left: 17px;
-        cursor: pointer;
-        padding-top: 1px;
-        vertical-align: bottom;
-    }
-
-    .itemContainer {
-        text-align: center;
-		border-top: 1px solid transparent;
-		border-bottom: 1px solid transparent;
-		transition: border-top 0.2s, border-bottom 0.2s;
-		padding: 10px;
-		position: relative;
-        font-size: 16px;
-        font-weight: 200;
-        margin-bottom: 2px;
-        cursor: pointer;
-    }
-
-    .itemContainer:hover {
-        border-top: 1px solid rgba(212, 212, 212, 0.671);
-		border-bottom: 1px solid rgba(212, 212, 212, 0.671);
-    }
-
-    .icon {
-        cursor: default;
-		position: absolute;
-		right: 0;
-		top: 0;
-		text-align: end;
-        margin-top: 6px;
-        margin-right: 17px;
-	}
-
-    .icon svg {
-        width: 16px;
-    }
-
-    pre {
-        text-align: center;
-    }
-</style>

@@ -1,5 +1,6 @@
 <!-- 
-    * vscodeApi: is coming from ThemeEditorPanel. 
+    * vscodeApi: containes all the apis of vscode.
+    * selectedTheme: selected setting in sidebar.
 -->
 
 <!-- Script section -->

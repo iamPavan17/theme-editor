@@ -1,3 +1,9 @@
+<!-- 
+    * vscodeApi: containes all the apis of vscode.
+-->
+
+<!-- Script section -->
+
 <script>
     import { onMount, onDestroy } from "svelte";
     import { fly } from 'svelte/transition';
@@ -48,9 +54,9 @@
     const handleSelect = (title) => {
         vscodeApi.postMessage({ type: 'selected-theme', value: title });
     }
-
 </script>
 
+<!-- HTML section -->
 <div>
     <h2 class="sideBarTitle">
         saved settings 

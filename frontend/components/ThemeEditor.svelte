@@ -7,58 +7,11 @@
     import { slide } from "svelte/transition";
     export let convertToHumanForm;
     export let formatStylings;
+    export let defaultThemeSettings;
 
     let hasTouched = false;
 
-    const data = [
-		{ id: 1, title: 'titleBar', isOpen: false, data: [
-			{ id: 11, styleProp: 'titleBar.activeBackground', value: '' },
-			{ id: 12, styleProp: 'titleBar.activeForeground', value: '' },
-            { id: 13, styleProp: 'titleBar.border', value: '' },
-		] },
-		{ id: 2, title: 'activityBar', isOpen: false, data: [
-			{ id: 21, styleProp: 'activityBar.foreground', value: '' },
-            { id: 22, styleProp: 'activityBar.inactiveForeground', value: '' },
-            { id: 23, styleProp: 'activityBar.background', value: '' },
-            { id: 24, styleProp: 'activityBar.activeBackground', value: '' },
-            { id: 25, styleProp: 'activityBar.border', value: '' },
-		] },
-        { id: 3, title: 'sideBar', isOpen: false, data: [
-			{ id: 31, styleProp: 'sideBar.background', value: '' },
-			{ id: 32, styleProp: 'sideBar.foreground', value: '' },
-            { id: 33, styleProp: 'sideBarSectionHeader.background', value: '' },
-            { id: 34, styleProp: 'sideBarSectionHeader.foreground', value: '' },
-            { id: 35, styleProp: 'sideBar.border', value: '' },
-            { id: 36, styleProp: 'list.activeSelectionBackground', value: '' },
-            { id: 37, styleProp: 'list.activeSelectionForeground', value: '' },
-            { id: 38, styleProp: 'list.hoverBackground', value: '' },
-            { id: 39, styleProp: 'list.hoverForeground', value: '' },
-		] },
-        { id: 4, title: 'statusBar', isOpen: false, data: [
-			{ id: 41, styleProp: 'statusBar.foreground', value: '' },
-			{ id: 42, styleProp: 'statusBar.background', value: '' },
-            { id: 43, styleProp: 'statusBar.border', value: '' },
-		] },
-        { id: 5, title: 'terminal', isOpen: false, data: [
-			{ id: 51, styleProp: 'panel.background', value: '' },
-			{ id: 52, styleProp: 'panel.border', value: '' },
-            { id: 53, styleProp: 'panelTitle.activeBorder', value: '' },
-            { id: 54, styleProp: 'panelTitle.activeForeground', value: '' },
-            { id: 55, styleProp: 'panelTitle.inactiveForeground', value: '' },
-            { id: 56, styleProp: 'terminal.selectionBackground', value: '' },
-            { id: 57, styleProp: 'terminalCursor.foreground', value: '' },
-            { id: 58, styleProp: 'terminal.foreground', value: '' },
-		] },
-        { id: 6, title: 'editor', isOpen: false, data: [
-			{ id: 61, styleProp: 'editor.background', value: '' },
-			{ id: 62, styleProp: 'editorLineNumber.foreground', value: '' },
-            { id: 63, styleProp: 'editorCursor.foreground', value: '' },
-            { id: 64, styleProp: 'editorError.foreground', value: '' },
-            { id: 65, styleProp: 'editorWarning.foreground', value: '' },
-            { id: 66, styleProp: 'editorInfo.foreground', value: '' },
-            { id: 67, styleProp: 'editor.selectionBackground', value: '' },
-		] },
-	];
+    let data = defaultThemeSettings;
 
     // Apply stylings
     const handleApplyStyles = () => { 

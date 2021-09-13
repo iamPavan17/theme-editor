@@ -112,7 +112,6 @@ export class ThemeEditorPanel {
               vscode.ConfigurationTarget.Global
             );
           vscode.window.showInformationMessage("Theme updated successfully!");
-          await ThemeSettingsManager.setSettings({});
           break;
         }
         case "save": {
@@ -139,6 +138,9 @@ export class ThemeEditorPanel {
               Object.assign(newSettings, savedSettings);
             }
             await ThemeSettingsManager.setSettings(newSettings);
+            vscode.window.showInformationMessage(
+              "Theme saved successfully, Please click on a reload to see the newly saved settings!"
+            );
           }
           break;
         }

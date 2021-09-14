@@ -195,7 +195,7 @@
 .filesSideBarListTitle {
     padding: 5px 17px;
     font-size: 12px;
-    font-weight: 500;
+    font-weight: 600;
     color: var(--vscode-sideBarSectionHeader-foreground);
     background-color: var(--vscode-sideBarSectionHeader-background);
 }
@@ -284,7 +284,9 @@
 }
 
 .footer {
-    border: 1px solid #ece5e5;
+    border-top: 1px solid var(--vscode-statusBar-border);
+    background-color: var(--vscode-statusBar-background);
+    color: var(--vscode-statusBar-foreground);
     height: 4%;
     width: 100%;
     position: absolute;

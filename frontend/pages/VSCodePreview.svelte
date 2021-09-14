@@ -81,6 +81,14 @@
                 <li style="color: {getSelectedColor(data, 4, 3)}">Debug Console</li>
             </ul>
 
+            <div class="terminalIcons">
+                <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M10 3h3v1h-1v9l-1 1H4l-1-1V4H2V3h3V2a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v1zM9 2H6v1h3V2zM4 13h7V4H4v9zm2-8H5v7h1V5zm1 0h1v7H7V5zm2 0h1v7H9V5z"/></svg>
+                <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M8.024 5.928l-4.357 4.357-.62-.618L7.716 5h.618L13 9.667l-.619.618-4.357-4.357z"/></svg>
+                <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 8.707l3.646 3.647.708-.707L8.707 8l3.647-3.646-.707-.708L8 7.293 4.354 3.646l-.707.708L7.293 8l-3.646 3.646.707.708L8 8.707z"/></svg>
+            </div>
+
+            <div class="clearfix"></div>
+
             <div class="terminalText" style="">
                 ~/Sites/projects/play-area/learning/html ~
                 <span style="color: {getSelectedColor(data, 4, 5)}">yarn start</span>
@@ -282,6 +290,7 @@
 }
 
 .terminalContainer ul {
+    float: left;
     list-style: none;
     padding: 13px 0px 16px 0px;
 }
@@ -312,6 +321,18 @@
 
 .terminalText {
     padding-left: 18px;
+}
+
+.terminalIcons {
+    text-align: end;
+    float: right;
+    width: 80px;
+    height: 21px;
+    margin-top: 11px;
+}
+
+.terminalIcons svg {
+    margin-right: 3px;
 }
 
 /* .terminalText::after {

@@ -5,6 +5,7 @@ import {
   formatStylings,
   assignSelectThemeValues,
   resetToDefaultSettings,
+  getSelectedColor,
 } from "../pages/helpers";
 import { defaultThemeSettings } from "./constants";
 
@@ -16,6 +17,7 @@ const app = new App({
     defaultThemeSettings,
     assignSelectThemeValues,
     resetToDefaultSettings,
+    getSelectedColor,
     // eslint-disable-next-line @typescript-eslint/naming-convention
     VSCodePreview,
   },

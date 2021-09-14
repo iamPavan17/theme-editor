@@ -13,6 +13,7 @@
     export let defaultThemeSettings;
     export let assignSelectThemeValues;
     export let resetToDefaultSettings;
+    export let getSelectedColor;
     export let VSCodePreview;
 
     let hasTouched = false;
@@ -80,11 +81,6 @@
         data = resetToDefaultSettings(data);
         // data = assignDefaultColors(data);
     }
-
-    $: {
-        console.log(data, "**")
-    }
-
 </script>
 
 <!-- HTML section -->
@@ -104,7 +100,7 @@
                             {#each entry.data as item}
                                 <li>
                                     <!-- <label class:ColorTitle={!item.value} for={item.id}>{item.label}:</label> -->
-                                    <label for={item.id}>{item.label}:</label>
+                                    <label for={item.id}>{item.styleProp}:</label>
                                     <input type="color" id={item.id} bind:value={item.value} on:change={() => hasTouched = true}>
                                 </li>
                             {/each}
@@ -125,5 +121,5 @@
     </div>
 
     <!-- VS Code preview section -->
-    <svelte:component this={VSCodePreview} {data}/>
+    <svelte:component this={VSCodePreview} {data} {getSelectedColor}/>
 </div>

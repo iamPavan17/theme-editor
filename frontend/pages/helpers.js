@@ -68,3 +68,9 @@ export const resetToDefaultSettings = (defaultThemeSettings) => {
 
   return defaultThemeSettings;
 };
+
+export const getSelectedColor = (data, parentIndex, childIndex, isBorder) => {
+  return isBorder && data[parentIndex].data[childIndex].value
+    ? `1px solid ${data[parentIndex].data[childIndex].value}`
+    : data[parentIndex].data[childIndex].value;
+};

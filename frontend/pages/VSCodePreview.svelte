@@ -109,6 +109,9 @@
     /* border: 1px solid; */
     /* border-radius: 8px; */
     position: relative;
+    box-shadow: 2px 0 1px -2px #cecccc;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 
 .clearfix:after {
@@ -119,10 +122,10 @@
 
 .topBarContainer {
     background-color: var(--vscode-titleBar-activeBackground);
-    border: 1px solid #ece5e5;
+    /* border: 1px solid #ece5e5; */
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
-    width: 100%;
+    width: 961.5px;
     height: 26px;
     padding: 5px;
 }

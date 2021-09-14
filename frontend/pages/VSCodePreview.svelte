@@ -36,9 +36,9 @@
         </ul>
     </div>
 
-    <div class="filesSideBarContainer">
+    <div class="filesSideBarContainer" style="background-color: {getSelectedColor(data, 2, 0)}; border-right: {getSelectedColor(data, 2, 4, true)}">
         <div class="filesSideBarHeaderContainer">
-            <div class="filesSideBarHeaderOne">Explorer</div>
+            <div class="filesSideBarHeaderOne">EXPLORER</div>
             <div class="filesSideBarHeaderTwo">
                 <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M4 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm5 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm5 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/></svg>
             </div>
@@ -46,12 +46,12 @@
 
         <div class="clearfix"></div>
         <div style="padding-bottom: 10px;"></div>
-        <div class="filesSideBarListTitle">VS CODE</div>
+        <div class="filesSideBarListTitle" style="background-color: {getSelectedColor(data, 2, 2)}; color: {getSelectedColor(data, 2, 3)};">VS CODE</div>
 
         <div class="filesSideBarListContainer">
-            <div class="fileList">index.html</div>
-            <div class="fileList">styles.css</div>
-            <div class="fileList">scripts.js</div>
+            <div class="fileList" style="color: {getSelectedColor(data, 2, 1)};">index.html</div>
+            <div class="fileList" style="color: {getSelectedColor(data, 2, 1)};">styles.css</div>
+            <div class="fileList" style="color: {getSelectedColor(data, 2, 1)}; background-color: {getSelectedColor(data, 2, 5)}; color: {getSelectedColor(data, 2, 6)};">scripts.js</div>
         </div>
     </div>
 
@@ -66,28 +66,32 @@
             script.js</div>
         <div class="textEditorCode">
             <ul>
-                <li>console.log("Hello World");</li>
+                <li>
+                    console.log("Hello World");
+                    <div class="textEditorCursor" style="border: {getSelectedColor(data, 5, 1, true)};"></div>
+                </li>
             </ul>
         </div>
 
-        <div class="terminalContainer">
+        <div class="terminalContainer" style="border-top: {getSelectedColor(data, 4, 0, true)};">
             <ul>
-                <li class="activeTerminal">Terminal</li>
-                <li>Problems</li>
-                <li>Output</li>
-                <li>Debug Console</li>
+                <li class="activeTerminal" style="border-bottom: {getSelectedColor(data, 4, 1, true)}; color: {getSelectedColor(data, 4, 2)};">Terminal</li>
+                <li style="color: {getSelectedColor(data, 4, 3)}">Problems</li>
+                <li style="color: {getSelectedColor(data, 4, 3)}">Output</li>
+                <li style="color: {getSelectedColor(data, 4, 3)}">Debug Console</li>
             </ul>
 
-            <div class="terminalText">
+            <div class="terminalText" style="">
                 ~/Sites/projects/play-area/learning/html ~
-                <span>yarn start</span>
+                <span style="color: {getSelectedColor(data, 4, 5)}">yarn start</span>
+                <div class="terminalCursor" style="border: {getSelectedColor(data, 4, 4, true)};"></div>
             </div>
         </div>
     </div>
 
     <div class="clearfix"></div>
 
-    <div class="footer">
+    <div class="footer" style="color: {getSelectedColor(data, 3, 0)}; background-color: {getSelectedColor(data, 3, 1)}; border-top: {getSelectedColor(data, 3, 2, true)}">
         <div class="footerItems">
             <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M8.6 1c1.6.1 3.1.9 4.2 2 1.3 1.4 2 3.1 2 5.1 0 1.6-.6 3.1-1.6 4.4-1 1.2-2.4 2.1-4 2.4-1.6.3-3.2.1-4.6-.7-1.4-.8-2.5-2-3.1-3.5C.9 9.2.8 7.5 1.3 6c.5-1.6 1.4-2.9 2.8-3.8C5.4 1.3 7 .9 8.6 1zm.5 12.9c1.3-.3 2.5-1 3.4-2.1.8-1.1 1.3-2.4 1.2-3.8 0-1.6-.6-3.2-1.7-4.3-1-1-2.2-1.6-3.6-1.7-1.3-.1-2.7.2-3.8 1-1.1.8-1.9 1.9-2.3 3.3-.4 1.3-.4 2.7.2 4 .6 1.3 1.5 2.3 2.7 3 1.2.7 2.6.9 3.9.6zM7.9 7.5L10.3 5l.7.7-2.4 2.5 2.4 2.5-.7.7-2.4-2.5-2.4 2.5-.7-.7 2.4-2.5-2.4-2.5.7-.7 2.4 2.5z"/></svg>
             0
@@ -171,7 +175,6 @@
 }
 
 .filesSideBarContainer {
-    /* border: 1px solid #ece5e5; */
     background-color: var(--vscode-sideBar-background);
     border-right: 1px solid var(--vscode-sideBar-border);
     width: 24%;
@@ -184,6 +187,7 @@
 }
 
 .filesSideBarHeaderOne {
+    font-size: 12px;
     float: left;
 }
 
@@ -246,7 +250,7 @@
     padding-left: 20px;
 }
 
-.textEditorCode li:after {
+/* .textEditorCode li:after {
     content: "";
     border: 1px solid var(--vscode-editorCursor-foreground);
     display: inline-block;
@@ -255,6 +259,17 @@
     margin-left: 8px;
     margin-top: -2px;
     vertical-align: middle;
+} */
+
+.textEditorCursor {
+    border: 1px solid var(--vscode-editorCursor-foreground);
+    display: inline-block;
+    /* width: 7px; */
+    height: 16px;
+    margin-left: 1px;
+    margin-top: -1px;
+    vertical-align: middle;
+    animation: blink 1s linear infinite;
 }
 
 .closeIcon {
@@ -299,7 +314,7 @@
     padding-left: 18px;
 }
 
-.terminalText::after {
+/* .terminalText::after {
     content: "";
     border: 1px solid var(--vscode-terminalCursor-foreground);
     display: inline-block;
@@ -308,6 +323,23 @@
     margin-left: 8px;
     margin-top: -4px;
     vertical-align: middle;
+} */
+
+.terminalCursor {
+    border: 1px solid var(--vscode-terminalCursor-foreground);
+    display: inline-block;
+    width: 7px;
+    height: 15px;
+    margin-left: 1px;
+    margin-top: -4px;
+    vertical-align: middle;
+    animation: blink 1s linear infinite;
+}
+
+@keyframes blink{
+    0%{ opacity: 0; }
+    50%{ opacity: .5; }
+    100%{ opacity: 1; }
 }
 
 .terminalText span {

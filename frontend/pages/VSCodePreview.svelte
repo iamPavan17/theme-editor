@@ -1,8 +1,8 @@
 <script>
-    export let data;
+    // export let data;
 
     $:{
-        console.log(data, "****");
+        // console.log(data, "****");
     }
 </script>
 
@@ -123,7 +123,7 @@
 
 .topBarContainer {
     background-color: var(--vscode-titleBar-activeBackground);
-    /* border: 1px solid #ece5e5; */
+    border-bottom: 1px solid var(--vscode-titleBar-border);
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
     width: 961.5px;

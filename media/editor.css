@@ -47,6 +47,10 @@
     margin-bottom: 10px;
 }
 
+.ColorTitle:after { 
+    content: " * "
+}
+
 .btn-action-container {
     padding: 17px 30px;
     text-align: right;

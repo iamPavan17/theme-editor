@@ -48,24 +48,24 @@
         </div>
 
         <div class="clearfix"></div>
-
+        <div style="padding-bottom: 10px;"></div>
         <div class="filesSideBarListTitle">VS CODE</div>
 
         <div class="filesSideBarListContainer">
-        <div class="fileList">index.html</div>
-        <div class="fileList">styles.css</div>
-        <div class="fileList">scripts.js</div>
+            <div class="fileList">index.html</div>
+            <div class="fileList">styles.css</div>
+            <div class="fileList">scripts.js</div>
         </div>
     </div>
 
     <div class="textEditorContainer">
         <div class="textEditorHeaderContainer"> 
             <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M4.708 5.578L2.061 8.224l2.647 2.646-.708.708-3-3V7.87l3-3 .708.708zm7-.708L11 5.578l2.647 2.646L11 10.87l.708.708 3-3V7.87l-3-3zM4.908 13l.894.448 5-10L9.908 3l-5 10z"/></svg>
-            index.html *
+            script.js *
         </div>
         <div class="textEditorBreadcrumb">
             <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M4.708 5.578L2.061 8.224l2.647 2.646-.708.708-3-3V7.87l3-3 .708.708zm7-.708L11 5.578l2.647 2.646L11 10.87l.708.708 3-3V7.87l-3-3zM4.908 13l.894.448 5-10L9.908 3l-5 10z"/></svg>
-            index.html</div>
+            script.js</div>
         <div class="textEditorCode">
             <ul>
                 <li>console.log("Hello World");</li>
@@ -172,7 +172,9 @@
 }
 
 .filesSideBarContainer {
-    border: 1px solid #ece5e5;
+    /* border: 1px solid #ece5e5; */
+    background-color: var(--vscode-sideBar-background);
+    border-right: 1px solid var(--vscode-sideBar-border);
     width: 24%;
     height: 92%;
     float: left;
@@ -191,15 +193,21 @@
 }
 
 .filesSideBarListTitle {
-    padding: 14px 17px;
+    padding: 5px 17px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--vscode-sideBarSectionHeader-foreground);
+    background-color: var(--vscode-sideBarSectionHeader-background);
 }
 
 .fileList {
+    color: var(--vscode-sideBar-foreground);
     padding: 5px 35px;
 }
 
-.fileList:first-child {
-    background-color: var(--vscode-welcomePage-tileHoverBackground);
+.fileList:last-child {
+    color: var(--vscode-list-activeSelectionForeground);
+    background-color: var(--vscode-list-activeSelectionBackground);
 }
 
 

@@ -81,7 +81,8 @@
             </ul>
 
             <div class="terminalText">
-                ~/Sites/projects/play-area/learning/html
+                ~/Sites/projects/play-area/learning/html ~
+                <span>yarn start</span>
             </div>
         </div>
     </div>
@@ -243,13 +244,17 @@
 }
 
 .terminalContainer {
-    border-top: 1px solid #ccc;
+    border-top: 1px solid var(--vscode-panel-border);
     width: 101%;
 }
 
 .terminalContainer ul {
     list-style: none;
     padding: 13px 0px 16px 0px;
+}
+
+.activeTerminal {
+    color: var(--vscode-panelTitle-activeForeground);
 }
 
 .terminalContainer li {
@@ -259,11 +264,15 @@
     font-size: 12px;
 }
 
+.terminalContainer li:not(:first-child) {
+    color: var(--vscode-panelTitle-inactiveForeground);
+}
+
 .activeTerminal::after {
     content: "";
     display: block;
-    width: 55px;
-    border-bottom: 1px solid;
+    width: 60px;
+    border-bottom: 1px solid var(--vscode-panelTitle-activeBorder);
     padding-bottom: 7px;
     margin: 0 auto;
 }
@@ -274,13 +283,19 @@
 
 .terminalText::after {
     content: "";
-    border: 1px solid;
+    border: 1px solid var(--vscode-terminalCursor-foreground);
     display: inline-block;
     width: 6px;
     height: 14px;
-    margin-left: 5px;
+    margin-left: 8px;
     margin-top: -4px;
     vertical-align: middle;
+}
+
+.terminalText span {
+    display: inline-block;
+    margin-left: 5px;
+    color: var(--vscode-terminal-foreground);
 }
 
 .footer {

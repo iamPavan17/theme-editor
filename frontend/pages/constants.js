@@ -138,7 +138,7 @@ export const defaultThemeSettings = [
     title: "terminal",
     isOpen: false,
     data: [
-      { id: 51, styleProp: "panel.background", value: "", label: "Background" },
+      // { id: 51, styleProp: "panel.background", value: "", label: "Background" },
       { id: 52, styleProp: "panel.border", value: "", label: "Border" },
       {
         id: 53,
@@ -158,12 +158,12 @@ export const defaultThemeSettings = [
         value: "",
         label: "Inactive title color",
       },
-      {
-        id: 56,
-        styleProp: "terminal.selectionBackground",
-        value: "",
-        label: "Selected text background",
-      },
+      // {
+      //   id: 56,
+      //   styleProp: "terminal.selectionBackground",
+      //   value: "",
+      //   label: "Selected text background",
+      // },
       {
         id: 57,
         styleProp: "terminalCursor.foreground",

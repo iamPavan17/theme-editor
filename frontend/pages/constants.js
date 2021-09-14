@@ -49,6 +49,12 @@ export const defaultThemeSettings = [
         label: "Active Background",
       },
       { id: 25, styleProp: "activityBar.border", value: "", label: "Border" },
+      {
+        id: 26,
+        styleProp: "activityBar.activeBorder",
+        value: "",
+        label: "Active Border",
+      },
     ],
   },
   {

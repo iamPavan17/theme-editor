@@ -1,4 +1,5 @@
 import App from "../components/ThemeEditor.svelte";
+import VSCodePreview from "./VSCodePreview.svelte";
 import {
   convertToHumanForm,
   formatStylings,
@@ -15,6 +16,8 @@ const app = new App({
     defaultThemeSettings,
     assignSelectThemeValues,
     resetToDefaultSettings,
+    // eslint-disable-next-line @typescript-eslint/naming-convention
+    VSCodePreview,
   },
 });
 

@@ -7,11 +7,13 @@
 <script>
     import { slide } from "svelte/transition";
     import { onMount, onDestroy } from "svelte";
+
     export let convertToHumanForm;
     export let formatStylings;
     export let defaultThemeSettings;
     export let assignSelectThemeValues;
     export let resetToDefaultSettings;
+    export let VSCodePreview;
 
     let hasTouched = false;
     let hasLoadedSavedTheme = false;
@@ -101,4 +103,7 @@
         </div>
 
     </div>
+
+    <!-- VS Code preview section -->
+    <svelte:component this={VSCodePreview} {data}/>
 </div>

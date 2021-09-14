@@ -230,7 +230,7 @@
 
 .textEditorHeaderContainer {
     width: 111px;
-    background-color: var(--vscode-welcomePage-tileHoverBackground);
+    background-color: var(--vscode-tab-inactiveBackground);
     padding: 7px;
 }
 

@@ -230,7 +230,7 @@
 }
 
 .textEditorCode {
-    background-color: var(--vscode-editor-background);
+    /* background-color: var(--vscode-editor-background); */
     height: 320px;
 }
 

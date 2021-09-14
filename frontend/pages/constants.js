@@ -183,12 +183,12 @@ export const defaultThemeSettings = [
     title: "editor",
     isOpen: false,
     data: [
-      {
-        id: 61,
-        styleProp: "editor.background",
-        value: "",
-        label: "Background",
-      },
+      // {
+      //   id: 61,
+      //   styleProp: "editor.background",
+      //   value: "",
+      //   label: "Background",
+      // }, ***
       {
         id: 62,
         styleProp: "editorLineNumber.foreground",
@@ -201,30 +201,30 @@ export const defaultThemeSettings = [
         value: "",
         label: "Cursor color",
       },
-      {
-        id: 64,
-        styleProp: "editorError.foreground",
-        value: "",
-        label: "Error color",
-      },
-      {
-        id: 65,
-        styleProp: "editorWarning.foreground",
-        value: "",
-        label: "Warning color",
-      },
-      {
-        id: 66,
-        styleProp: "editorInfo.foreground",
-        value: "",
-        label: "Info color",
-      },
-      {
-        id: 67,
-        styleProp: "editor.selectionBackground",
-        value: "",
-        label: "Selected text background",
-      },
+      // {
+      //   id: 64,
+      //   styleProp: "editorError.foreground",
+      //   value: "",
+      //   label: "Error color",
+      // },
+      // {
+      //   id: 65,
+      //   styleProp: "editorWarning.foreground",
+      //   value: "",
+      //   label: "Warning color",
+      // },
+      // {
+      //   id: 66,
+      //   styleProp: "editorInfo.foreground",
+      //   value: "",
+      //   label: "Info color",
+      // },
+      // {
+      //   id: 67,
+      //   styleProp: "editor.selectionBackground",
+      //   value: "",
+      //   label: "Selected text background",
+      // },
     ],
   },
 ];

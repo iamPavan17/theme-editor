@@ -230,6 +230,7 @@
 }
 
 .textEditorCode {
+    background-color: var(--vscode-editor-background);
     height: 320px;
 }
 
@@ -239,8 +240,23 @@
     padding-left: 35px;
 }
 
+.textEditorCode li::marker {
+    color: var(--vscode-editorLineNumber-foreground);
+}
+
 .textEditorCode li {
     padding-left: 20px;
+}
+
+.textEditorCode li:after {
+    content: "";
+    border: 1px solid var(--vscode-editorCursor-foreground);
+    display: inline-block;
+    width: 6px;
+    height: 14px;
+    margin-left: 8px;
+    margin-top: -2px;
+    vertical-align: middle;
 }
 
 .terminalContainer {

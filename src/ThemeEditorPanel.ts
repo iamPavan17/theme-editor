@@ -106,7 +106,7 @@ export class ThemeEditorPanel {
     ThemeEditorPanel.currentPanel = undefined;
 
     // Closing side bar once the theme editor tab is closed
-    vscode.commands.executeCommand("workbench.action.closeSidebar");
+    // vscode.commands.executeCommand("workbench.action.closeSidebar");
 
     this._panel.dispose(); // Clean up our resources
 

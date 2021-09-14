@@ -45,11 +45,13 @@ export class SidebarProvider implements vscode.WebviewViewProvider {
               await ThemeSettingsManager.getSettings();
             delete savedSettings[data.value];
             await ThemeSettingsManager.setSettings(savedSettings);
+            ThemeEditorPanel.kill();
             // To webview sidebar
             webviewView.webview.postMessage({
               type: "delete",
               value: data.value,
             });
+            ThemeEditorPanel.createOrShow(this._extensionUri, undefined);
           }
           break;
         }

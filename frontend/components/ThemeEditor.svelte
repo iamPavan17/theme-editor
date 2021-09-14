@@ -18,20 +18,20 @@
     let hasTouched = false;
     let hasLoadedSavedTheme = false;
 
-    const assignDefaultColors = (settings) => {
-        let settingsClone = [...settings];
-        for(let key in settings) {
-            let currentSetting = settingsClone[key].data;
-            for(let i = 0; i < currentSetting.length; i++) {
-                const bodyStyles = window.getComputedStyle(document.body);
-                const color = bodyStyles.getPropertyValue(currentSetting[i].cssVar);
-                currentSetting[i].value = color;
-            }
-        }
-        return settingsClone;
-    }
+    // const assignDefaultColors = (settings) => {
+    //     let settingsClone = [...settings];
+    //     for(let key in settings) {
+    //         let currentSetting = settingsClone[key].data;
+    //         for(let i = 0; i < currentSetting.length; i++) {
+    //             const bodyStyles = window.getComputedStyle(document.body);
+    //             const color = bodyStyles.getPropertyValue(currentSetting[i].cssVar);
+    //             currentSetting[i].value = color;
+    //         }
+    //     }
+    //     return settingsClone;
+    // }
 
-    let data = assignDefaultColors(defaultThemeSettings);
+    let data = defaultThemeSettings;
 
     const onWindowMessage = (event) => {
         const message = event.data;
@@ -78,7 +78,7 @@
         hasTouched = false;
         hasLoadedSavedTheme = false;
         data = resetToDefaultSettings(data);
-        data = assignDefaultColors(data);
+        // data = assignDefaultColors(data);
     }
 
     $: {
@@ -103,7 +103,8 @@
                         <ul transition:slide={{ duration: 300 }}>
                             {#each entry.data as item}
                                 <li>
-                                    <label class:ColorTitle={!item.value} for={item.id}>{item.label}:</label>
+                                    <!-- <label class:ColorTitle={!item.value} for={item.id}>{item.label}:</label> -->
+                                    <label for={item.id}>{item.label}:</label>
                                     <input type="color" id={item.id} bind:value={item.value} on:change={() => hasTouched = true}>
                                 </li>
                             {/each}
@@ -112,7 +113,8 @@
                 {/if}
             </div>
         {/each}
-        <pre class="note">Note: Labels with * means, there is no default color has set.</pre>
+        <!-- <pre class="note">Note: Labels with * means, there is no default color has set.</pre> -->
+        <pre class="note">Note: Only changed color values will be reflected.</pre>
 
         <div class="btn-action-container">
             <button disabled={!hasTouched && !hasLoadedSavedTheme} class:disabled-btn={!hasTouched && !hasLoadedSavedTheme} on:click={handleResetStyles}>Reset</button>

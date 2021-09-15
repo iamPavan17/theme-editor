@@ -2,6 +2,8 @@
 
 An extension for customizing a theme with a live preview. Also includes saving the theme settings.
 
+Download the extension for your vscode from here - https://marketplace.visualstudio.com/items?itemName=imPavan.theme-editor
+
 ![theme-editing-preview](https://media.giphy.com/media/lWTq6ilmah58QQr7ut/giphy.gif?cid=790b7611ae57dc6bf97ca189b2b30256b9205d9f3568cf9a&rid=giphy.gif&ct=g)
 
 ## How to run locally
@@ -9,6 +11,10 @@ An extension for customizing a theme with a live preview. Also includes saving t
 * Run `npm` to install dependencies.
 * Run `npm run watch` to comple Typescript and Svelte.js
 * To launch extension press `Fn F5`.
+
+
+## After installing extension from marketplace, To open via command:
+* `CMD + SHIFT + P` and enter > theme-editor and select *Open Theme Editor*.
 
 ## Release Notes
 

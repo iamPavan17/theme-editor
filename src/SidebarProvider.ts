@@ -96,10 +96,10 @@ export class SidebarProvider implements vscode.WebviewViewProvider {
 
     /** And the uri we use to load this script in the webview */
     const scriptUri = webview.asWebviewUri(
-      vscode.Uri.joinPath(this._extensionUri, "out", "compiled/Sidebar.js")
+      vscode.Uri.joinPath(this._extensionUri, "dist", "compiled/Sidebar.js")
     );
     const styleMainUri = webview.asWebviewUri(
-      vscode.Uri.joinPath(this._extensionUri, "out", "compiled/Sidebar.css")
+      vscode.Uri.joinPath(this._extensionUri, "dist", "compiled/Sidebar.css")
     );
     const customStyles = webview.asWebviewUri(
       vscode.Uri.joinPath(this._extensionUri, "media", "sidebar.css")

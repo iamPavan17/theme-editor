@@ -43,7 +43,7 @@ export class ThemeEditorPanel {
         // And restrict the webview to only loading content from our extension's `media` directory.
         localResourceRoots: [
           vscode.Uri.joinPath(extensionUri, "media"),
-          vscode.Uri.joinPath(extensionUri, "out/compiled"),
+          vscode.Uri.joinPath(extensionUri, "dist/compiled"),
         ],
       }
     );
@@ -229,10 +229,14 @@ export class ThemeEditorPanel {
 
     // And the uri we use to load this script in the webview
     const scriptUri = webview.asWebviewUri(
-      vscode.Uri.joinPath(this._extensionUri, "out", "compiled/ThemeEditor.js")
+      vscode.Uri.joinPath(this._extensionUri, "dist", "compiled/ThemeEditor.js")
     );
     const styleMainUri = webview.asWebviewUri(
-      vscode.Uri.joinPath(this._extensionUri, "out", "compiled/ThemeEditor.css")
+      vscode.Uri.joinPath(
+        this._extensionUri,
+        "dist",
+        "compiled/ThemeEditor.css"
+      )
     );
 
     // Uri to load styles into webview

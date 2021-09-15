@@ -17,9 +17,12 @@
 		"Other"
 	],
 	"keywords": [
+		"color-theme",
 		"theme",
-		"theme editor",
-		"theme-customiser"
+		"theme-editor",
+		"theme-customiser",
+		"customize",
+		"custom-theme"	
 	],
 	"activationEvents": [
 		"onView:theme-editor-sidebar",

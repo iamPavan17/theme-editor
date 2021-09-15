@@ -100,7 +100,7 @@
                             {#each entry.data as item}
                                 <li>
                                     <!-- <label class:ColorTitle={!item.value} for={item.id}>{item.label}:</label> -->
-                                    <label for={item.id}>{item.styleProp}:</label>
+                                    <label for={item.id}>{item.label}:</label>
                                     <input type="color" id={item.id} bind:value={item.value} on:change={() => hasTouched = true}>
                                 </li>
                             {/each}

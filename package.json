@@ -1,14 +1,21 @@
 {
 	"name": "theme-editor",
 	"displayName": "Theme Editor",
-	"description": "To customise a vs code theme",
-	"version": "0.0.1",
+	"description": "To customise a vs code theme with preview",
+	"version": "1.0.0",
 	"engines": {
 		"vscode": "^1.60.0"
 	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/imPavan17/theme-editor"
+	},
+	"icon": "media/icon.png",
 	"categories": [
+		"Themes",
 		"Other"
 	],
+	"keywords": ["theme", "theme-editor", "theme-customiser"],
 	"activationEvents": [
 		"onView:theme-editor-sidebar",
 		"onCommand:theme-editor.helloWorld"

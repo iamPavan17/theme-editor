@@ -1,6 +1,6 @@
-# theme-editor README
+# Theme Editor
 
-This is the README for your extension "theme-editor". After writing up a brief description, we recommend including the following sections.
+An extension for customizing a theme with a live preview. Also includes saving the theme settings.
 
 ## Features
 
@@ -8,63 +8,27 @@ Describe specific features of your extension including screenshots of your exten
 
 For example if there is an image subfolder under your extension project workspace:
 
-\!\[feature X\]\(images/feature-x.png\)
+![theme-editing-preview](https://media.giphy.com/media/lWTq6ilmah58QQr7ut/giphy.gif?cid=790b7611ae57dc6bf97ca189b2b30256b9205d9f3568cf9a&rid=giphy.gif&ct=g)
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+## How to run locally
 
-## Requirements
-
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
-
-## Extension Settings
-
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: enable/disable this extension
-* `myExtension.thing`: set to `blah` to do something
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
+* Run npm to install dependencies.
+* Run npm run watch to comple Typescript and Svelte.js
+* To launch extension press Fn F5.
 
 ## Release Notes
 
-Users appreciate release notes as you update your extension.
-
 ### 1.0.0
 
-Initial release of ...
+Initial release.
 
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
+### Upcoming features
+* Adding authentication feature and able to save the theme settings in the cloud.
+* Adding more color settings.
+* Auto theme switcher(Day - Light, Night - Dark).
 
 -----------------------------------------------------------------------------------------------------------
-## Following extension guidelines
+License
+----
+MIT
 
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-**Note:** You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+CMD+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux) or `Cmd+Space` (macOS) to see a list of Markdown snippets
-
-### For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**

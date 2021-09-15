@@ -57,9 +57,8 @@
     cursor: default;
     position: absolute;
     right: 0;
-    top: 0;
+    top: 7px;
     text-align: end;
-    margin-top: 6px;
     margin-right: 17px;
 }
 

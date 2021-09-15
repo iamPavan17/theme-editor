@@ -4,7 +4,7 @@ An extension for customizing a theme with a live preview. Also includes saving t
 
 Download the extension for your vscode from here - https://marketplace.visualstudio.com/items?itemName=imPavan.theme-editor
 
-![theme-editing-preview](https://media.giphy.com/media/lWTq6ilmah58QQr7ut/giphy.gif?cid=790b7611ae57dc6bf97ca189b2b30256b9205d9f3568cf9a&rid=giphy.gif&ct=g)
+![theme-editing-preview](https://media.giphy.com/media/7h3CUvqN5SicRkfbTo/giphy.gif?cid=790b7611b21696176fd134f59fedecfa7c2a66ae084382eb&rid=giphy.gif&ct=g)
 
 ## How to run locally
 

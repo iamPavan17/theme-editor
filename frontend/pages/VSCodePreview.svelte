@@ -296,7 +296,7 @@
 .textEditorCursor {
     border: 1px solid var(--vscode-editorCursor-foreground);
     display: inline-block;
-    /* width: 7px; */
+    width: 6px;
     height: 16px;
     margin-left: 1px;
     margin-top: -1px;
@@ -373,7 +373,7 @@
 .terminalCursor {
     border: 1px solid var(--vscode-terminalCursor-foreground);
     display: inline-block;
-    width: 7px;
+    width: 6px;
     height: 15px;
     margin-left: 1px;
     margin-top: -4px;

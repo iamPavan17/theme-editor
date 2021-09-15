@@ -1,7 +1,7 @@
 {
 	"name": "theme-editor",
 	"displayName": "Theme Editor",
-	"publisher": "Pavan",
+	"publisher": "imPavan",
 	"description": "To customise a vs code theme with preview",
 	"version": "1.0.0",
 	"engines": {

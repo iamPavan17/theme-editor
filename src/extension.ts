@@ -13,6 +13,14 @@ export function activate(context: vscode.ExtensionContext) {
       sidebarProvider
     )
   );
+
+  context.subscriptions.push(
+    vscode.commands.registerCommand("theme-editor.open", async () => {
+      await vscode.commands.executeCommand(
+        "workbench.view.extension.theme-editor-sidebar-view"
+      );
+    })
+  );
 }
 
 // this method is called when your extension is deactivated

@@ -19,7 +19,7 @@
 	"keywords": ["theme", "theme editor", "theme-customiser"],
 	"activationEvents": [
 		"onView:theme-editor-sidebar",
-		"onCommand:theme-editor.helloWorld"
+		"onCommand:theme-editor.open"
 	],
 	"main": "./dist/extension.js",
 	"contributes": {
@@ -44,7 +44,11 @@
 			]
 		},
 		"commands": [
-			
+			{
+				"command": "theme-editor.open",
+				"title": "Open Theme Editor",
+				"category": "Theme Editor"
+			}
 		]
 	},
 	"scripts": {

@@ -8,7 +8,7 @@ Download the extension for your vscode from here - https://marketplace.visualstu
 
 ## How to run locally
 
-* Run `npm` to install dependencies.
+* Run `npm install` to install dependencies.
 * Run `npm run watch` to comple Typescript and Svelte.js
 * To launch extension press `Fn F5`.
 
@@ -16,11 +16,6 @@ Download the extension for your vscode from here - https://marketplace.visualstu
 ## After installing extension from marketplace, To open via command:
 * `CMD + SHIFT + P` and enter > theme-editor and select *Open Theme Editor*.
 
-## Release Notes
-
-### 1.0.0
-
-Initial release.
 
 ## Upcoming features
 * Adding authentication feature and able to save the theme settings in the cloud.

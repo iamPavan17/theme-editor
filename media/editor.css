@@ -6,7 +6,7 @@
 
 .title::after {
     content: "";
-    border: 1px solid #ccc;
+    border-top: 2px solid #ccc;
     width: 10%;
     display: block;
     margin-top: 4px;

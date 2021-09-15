@@ -6,9 +6,9 @@ An extension for customizing a theme with a live preview. Also includes saving t
 
 ## How to run locally
 
-* Run npm to install dependencies.
-* Run npm run watch to comple Typescript and Svelte.js
-* To launch extension press Fn F5.
+* Run `npm` to install dependencies.
+* Run `npm run watch` to comple Typescript and Svelte.js
+* To launch extension press `Fn F5`.
 
 ## Release Notes
 

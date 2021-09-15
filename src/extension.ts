@@ -1,7 +1,7 @@
 import * as vscode from "vscode";
 import { ThemeSettingsManager } from "./ThemeSettingsManager";
 import { SidebarProvider } from "./SidebarProvider";
-import { ThemeEditorPanel } from "./ThemeEditorPanel";
+// import { ThemeEditorPanel } from "./ThemeEditorPanel";
 
 export function activate(context: vscode.ExtensionContext) {
   // defining global state
@@ -15,12 +15,12 @@ export function activate(context: vscode.ExtensionContext) {
     )
   );
 
-  context.subscriptions.push(
-    vscode.commands.registerCommand("theme-editor.helloWorld", () => {
-      vscode.window.showInformationMessage("Hello World!");
-      ThemeEditorPanel.createOrShow(context.extensionUri, undefined);
-    })
-  );
+  // context.subscriptions.push(
+  //   vscode.commands.registerCommand("theme-editor.helloWorld", () => {
+  //     vscode.window.showInformationMessage("Hello World!");
+  //     ThemeEditorPanel.createOrShow(context.extensionUri, undefined);
+  //   })
+  // );
 }
 
 // this method is called when your extension is deactivated

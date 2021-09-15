@@ -2,12 +2,6 @@
 
 An extension for customizing a theme with a live preview. Also includes saving the theme settings.
 
-## Features
-
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
-
-For example if there is an image subfolder under your extension project workspace:
-
 ![theme-editing-preview](https://media.giphy.com/media/lWTq6ilmah58QQr7ut/giphy.gif?cid=790b7611ae57dc6bf97ca189b2b30256b9205d9f3568cf9a&rid=giphy.gif&ct=g)
 
 ## How to run locally

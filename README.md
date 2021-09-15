@@ -16,12 +16,11 @@ An extension for customizing a theme with a live preview. Also includes saving t
 
 Initial release.
 
-### Upcoming features
+## Upcoming features
 * Adding authentication feature and able to save the theme settings in the cloud.
 * Adding more color settings.
 * Auto theme switcher(Day - Light, Night - Dark).
 
------------------------------------------------------------------------------------------------------------
 License
 ----
 MIT

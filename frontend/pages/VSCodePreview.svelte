@@ -100,14 +100,33 @@
     <div class="clearfix"></div>
 
     <div class="footer" style="color: {getSelectedColor(data, 3, 0)}; background-color: {getSelectedColor(data, 3, 1)}; border-top: {getSelectedColor(data, 3, 2, true)}">
-        <div class="footerItems">
-            <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M8.6 1c1.6.1 3.1.9 4.2 2 1.3 1.4 2 3.1 2 5.1 0 1.6-.6 3.1-1.6 4.4-1 1.2-2.4 2.1-4 2.4-1.6.3-3.2.1-4.6-.7-1.4-.8-2.5-2-3.1-3.5C.9 9.2.8 7.5 1.3 6c.5-1.6 1.4-2.9 2.8-3.8C5.4 1.3 7 .9 8.6 1zm.5 12.9c1.3-.3 2.5-1 3.4-2.1.8-1.1 1.3-2.4 1.2-3.8 0-1.6-.6-3.2-1.7-4.3-1-1-2.2-1.6-3.6-1.7-1.3-.1-2.7.2-3.8 1-1.1.8-1.9 1.9-2.3 3.3-.4 1.3-.4 2.7.2 4 .6 1.3 1.5 2.3 2.7 3 1.2.7 2.6.9 3.9.6zM7.9 7.5L10.3 5l.7.7-2.4 2.5 2.4 2.5-.7.7-2.4-2.5-2.4 2.5-.7-.7 2.4-2.5-2.4-2.5.7-.7 2.4 2.5z"/></svg>
-            0
+        <div class="footerLeftIcons">
+            <div class="footerItems">
+                <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M8.6 1c1.6.1 3.1.9 4.2 2 1.3 1.4 2 3.1 2 5.1 0 1.6-.6 3.1-1.6 4.4-1 1.2-2.4 2.1-4 2.4-1.6.3-3.2.1-4.6-.7-1.4-.8-2.5-2-3.1-3.5C.9 9.2.8 7.5 1.3 6c.5-1.6 1.4-2.9 2.8-3.8C5.4 1.3 7 .9 8.6 1zm.5 12.9c1.3-.3 2.5-1 3.4-2.1.8-1.1 1.3-2.4 1.2-3.8 0-1.6-.6-3.2-1.7-4.3-1-1-2.2-1.6-3.6-1.7-1.3-.1-2.7.2-3.8 1-1.1.8-1.9 1.9-2.3 3.3-.4 1.3-.4 2.7.2 4 .6 1.3 1.5 2.3 2.7 3 1.2.7 2.6.9 3.9.6zM7.9 7.5L10.3 5l.7.7-2.4 2.5 2.4 2.5-.7.7-2.4-2.5-2.4 2.5-.7-.7 2.4-2.5-2.4-2.5.7-.7 2.4 2.5z"/></svg>
+                0
+            </div>
+            <div class="footerItems">
+                <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.56 1h.88l6.54 12.26-.44.74H1.44L1 13.26 7.56 1zM8 2.28L2.28 13H13.7L8 2.28zM8.625 12v-1h-1.25v1h1.25zm-1.25-2V6h1.25v4h-1.25z"/></svg>
+                0
+            </div>
         </div>
-        <div class="footerItems">
-            <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.56 1h.88l6.54 12.26-.44.74H1.44L1 13.26 7.56 1zM8 2.28L2.28 13H13.7L8 2.28zM8.625 12v-1h-1.25v1h1.25zm-1.25-2V6h1.25v4h-1.25z"/></svg>
-            0
+        <div class="footerRightIcons">
+            <div class="footerRightItems">
+                Ln 1, Col 30
+            </div>
+            <div class="footerRightItems">
+                Spaces: 2
+            </div>
+            <div class="footerRightItems">
+                Javascript
+            </div>
+            <div class="footerRightItems">
+                <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M13.377 10.573a7.63 7.63 0 0 1-.383-2.38V6.195a5.115 5.115 0 0 0-1.268-3.446 5.138 5.138 0 0 0-3.242-1.722c-.694-.072-1.4 0-2.07.227-.67.215-1.28.574-1.794 1.053a4.923 4.923 0 0 0-1.208 1.675 5.067 5.067 0 0 0-.431 2.022v2.2a7.61 7.61 0 0 1-.383 2.37L2 12.343l.479.658h3.505c0 .526.215 1.04.586 1.412.37.37.885.586 1.412.586.526 0 1.04-.215 1.411-.586s.587-.886.587-1.412h3.505l.478-.658-.586-1.77zm-4.69 3.147a.997.997 0 0 1-.705.299.997.997 0 0 1-.706-.3.997.997 0 0 1-.3-.705h1.999a.939.939 0 0 1-.287.706zm-5.515-1.71l.371-1.114a8.633 8.633 0 0 0 .443-2.691V6.004c0-.563.12-1.113.347-1.616.227-.514.55-.969.969-1.34.419-.382.91-.67 1.436-.837.538-.18 1.1-.24 1.65-.18a4.147 4.147 0 0 1 2.597 1.4 4.133 4.133 0 0 1 1.004 2.776v2.01c0 .909.144 1.818.443 2.691l.371 1.113h-9.63v-.012z"/></svg>
+            </div>
         </div>
+
+        <div class="clearfix"></div>
+
     </div>
 </div>
 
@@ -223,7 +242,7 @@
 
 
 .textEditorContainer {
-    width: 70%;
+    width: 71%;
     height: 95%;
     float: left;
 }
@@ -235,8 +254,9 @@
 }
 
 .textEditorBreadcrumb {
+    width: 89%;
     padding: 3px 0px 3px 14px;
-    box-shadow: 0px 2px 3px rgb(185 181 181 / 20%);
+    box-shadow: 0px 1px 2px rgb(185 181 181 / 20%);
 }
 
 .textEditorCode {
@@ -257,6 +277,10 @@
 .textEditorCode li {
     padding-left: 20px;
 }
+
+/* .textEditorCode li:not(:first-child) {
+    padding-top: 5px;
+} */
 
 /* .textEditorCode li:after {
     content: "";
@@ -286,7 +310,7 @@
 
 .terminalContainer {
     border-top: 1px solid var(--vscode-panel-border);
-    width: 101%;
+    /* width: 681px; */
 }
 
 .terminalContainer ul {
@@ -382,11 +406,26 @@
     margin-bottom: -1px;
 }
 
+.footerLeftIcons {
+    float: left;
+}
+
+.footerRightIcons {
+    float: right;
+}
+
 .footerItems {
     display: inline-block;
     padding-left: 1px;
     margin-top: 3px;
-    font-size: 13px;
+    font-size: 12px;
+}
+
+.footerRightItems {
+    display: inline-block;
+    font-size: 12px;
+    margin-top: 3px;
+    margin-right: 12px;
 }
 
 .footerItems:first-child {

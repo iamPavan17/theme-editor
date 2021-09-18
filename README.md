@@ -16,12 +16,13 @@ Download the extension for your vscode from here - https://marketplace.visualstu
 ## After installing extension from marketplace, To open via command:
 * `CMD + SHIFT + P` and enter > theme-editor and select *Open Theme Editor*.
 
-## A top-level directory layout
+### A top-level directory layout
     .
     ├── frontend                # UI files (Svelte)
     ├── dist                    # Compiled files 
     ├── media                   # Images/css files
     ├── src                     # Source files (vscode extension entry)
+    └── rollup.config.js        # Svetle config file
     └── README.md
 
 ## Upcoming features

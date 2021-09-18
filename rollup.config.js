@@ -3,7 +3,6 @@ import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import { terser } from "rollup-plugin-terser";
 import sveltePreprocess from "svelte-preprocess";
-// import typescript from "@rollup/plugin-typescript";
 import path from "path";
 import fs from "fs";
 
@@ -43,12 +42,6 @@ export default fs
           dedupe: ["svelte"],
         }),
         commonjs(),
-        // typescript({
-        //   tsconfig: "frontend/tsconfig.json",
-        //   sourceMap: !production,
-        //   inlineSources: !production,
-        // }),
-
         // In dev mode, call `npm run start` once
         // the bundle has been generated
         // !production && serve(),

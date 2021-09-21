@@ -4,13 +4,6 @@ An extension for customizing a theme with a live preview. Also includes saving t
 
 ![theme-editing-preview](https://media.giphy.com/media/IKq7Kxv1H6ATmxqznq/giphy.gif?cid=790b7611a7c1bad72361061e491ffe49db92550a4e44d41a&rid=giphy.gif&ct=g)
 
-## How to run locally
-
-* Run `npm install` to install dependencies.
-* Run `npm run watch` to comple Typescript and Svelte.js
-* To launch extension press `Fn F5`.
-
-
 ## After installing extension from marketplace, To open via command:
 * `CMD + SHIFT + P` and enter > theme-editor and select *Open Theme Editor*.
 

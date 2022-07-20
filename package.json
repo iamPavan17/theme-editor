@@ -3,7 +3,7 @@
 	"displayName": "Theme Editor",
 	"publisher": "imPavan",
 	"description": "To customise a vs code theme with preview",
-	"version": "1.6.0",
+	"version": "1.8.0",
 	"engines": {
 		"vscode": "^1.60.0"
 	},
